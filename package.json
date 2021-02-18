@@ -1,0 +1,25 @@
+{
+  "name": "3commas-active-deals-export",
+  "version": "1.0.0",
+  "description": "3commas has a CSV export feature for deal history but not for active deals...so I built one.",
+  "main": "3c.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richjenks/3commas-active-deals-export.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richjenks/3commas-active-deals-export/issues"
+  },
+  "homepage": "https://github.com/richjenks/3commas-active-deals-export#readme",
+  "dependencies": {
+    "3commas-api-node": "^1.0.9",
+    "dateformat": "^4.5.1",
+    "dotenv": "^8.2.0",
+    "json2csv": "^5.0.6"
+  }
+}
