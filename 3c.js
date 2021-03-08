@@ -78,7 +78,7 @@ Promise.all([account, bots, deals]).then(responses => {
 			'sold_volume'                            : deal.sold_volume,
 			'bought_amount'                          : deal.bought_amount,
 			'sold_amount'                            : deal.sold_amount,
-			'final_profit'                           : deal.final_profit,
+			'final_profit'                           : deal.actual_profit,
 			'close_date'                             : deal.closed_at,
 		})
 	})
