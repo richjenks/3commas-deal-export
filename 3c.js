@@ -85,7 +85,7 @@ Promise.all([account, bots, deals]).then(responses => {
 
 	// Convert to CSV
 	const json = JSON.stringify(data)
-	const parser = new Parser;
+	const parser = new Parser({delimiter: ';'});
 	const csv = parser.parse(data)
 
 	// Save to file
