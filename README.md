@@ -10,7 +10,7 @@ It uses the same headings and formatting as the history CSV so you can easily co
 - Rename `.sample.env` to `.env`
 - [Create a 3commas API token](https://3commas.io/api_access_tokens) with `Bots Read` and `Accounts Read` permissions
 - Add the API Key and API Secret to `.env`
-- Run `node 3c.js`
+- Run `node export`
 
 You'll find the file in the `csv` folder.
 
