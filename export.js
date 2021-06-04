@@ -93,4 +93,6 @@ Promise.all([account, bots, deals]).then(responses => {
 	console.log('Saved to ' + file)
 	fs.writeFile(file, csv, e => { if (e) { console.log(e) } })
 
+}).catch(error => {
+	console.log(error)
 })
