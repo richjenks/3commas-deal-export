@@ -1,8 +1,12 @@
-# 3commas Active Deal Exporter
+# 3commas Deal Exporter
 
-3commas has a CSV export feature for deal history but not for active deals...so I built one.
+Command line tool for generating CSV files containing deal data with support for active and finished deals.
 
-It uses the same headings and formatting as the history CSV so you can easily compare active deals with closed ones.
+It aimes to solve three problems:
+
+1. History exports are limited to once every 10 minutes
+1. You can't export data for active deals
+1. API responses are limited to 1000 rows // TODO
 
 ## Usage
 
@@ -14,9 +18,31 @@ It uses the same headings and formatting as the history CSV so you can easily co
 
 You'll find the file in the `csv` folder.
 
+## Options
+
+### scope
+
+Only include deals with the specified status:
+
+- `active`: Active deals
+- `finished`: Finished deals
+- `completed`: Successfully completed
+- `cancelled`: Cancelled deals
+- `failed`: Failed deals
+- any other value or null (default): all deals
+
+### from
+
+Only include deals created after the specified datetime. You must include year, month and day but time is optional. Some examples:
+
+- 2021-04-20
+- 2021-04-20T16
+- 2021-04-20T16:20
+- 2021-04-20T16:20:00
+
 ## Data Accuracy
 
-Note that some data is not fixed and is only accurate at the time you run the script. For example, `final_profit` will be based on the current deal's value because the actual profit is not known until the deal is closed.
+Note that some data is not fixed and is only accurate at the time you run the script. For example, when exporting active deals, `final_profit` will be based on the current deal's value because the actual profit is not known until the deal is closed.
 
 It should, at least, provide accurate data if you were to close the deal at the same time as running the script.
 

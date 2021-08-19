@@ -20,6 +20,7 @@
     "3commas-api-node": "^1.0.9",
     "dateformat": "^4.5.1",
     "dotenv": "^8.2.0",
-    "json2csv": "^5.0.6"
+    "json2csv": "^5.0.6",
+    "yargs": "^17.1.0"
   }
 }

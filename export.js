@@ -4,6 +4,15 @@ const { Parser } = require('json2csv')
 const dateFormat = require("dateformat");
 const threeCommasAPI = require('3commas-api-node')
 
+// CLI options
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+const argv = yargs(hideBin(process.argv)).argv
+const options = {
+	scope: argv.scope || 'active',
+	from: argv.from || null
+}
+
 // API auth
 dotenv.config()
 const api = new threeCommasAPI({
@@ -15,7 +24,8 @@ const api = new threeCommasAPI({
 const account = api.accounts()
 const bots    = api.getBots()
 const deals   = api.getDeals({
-	scope: 'active',
+	scope: options.scope,
+	from: options.from,
 	limit: 1000,
 })
 
