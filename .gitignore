@@ -1,4 +1,5 @@
 .env
 csv/*
 !.gitkeep
+.DS_Store
 node_modules

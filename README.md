@@ -1,55 +1,61 @@
-# 3commas Deal Exporter
+# 3commas Deal Export
 
-Command line tool for generating CSV files containing deal data with support for active and finished deals.
+Command line tool for generating CSV exports of your deals.
 
-It aimes to solve three problems:
+## Features
 
-1. History exports are limited to once every 10 minutes
-1. You can't export data for active deals
-1. API responses are limited to 1000 rows // TODO
+- Not limited to once every 10 minutes
+- Can export active deals, i.e. deals that haven't closed yet
+- Automaticaly handles the API's limitation of 1000 records per response
 
-## Usage
+## Requirements
 
+This was developed on the following but may well work on previous versions:
+
+- Node v12.16.1
+- NPM 7.5.4
+
+## Setup
+
+- Clone this repo and `cd` into it
 - Run `npm install`
 - Rename `.sample.env` to `.env`
 - [Create a 3commas API token](https://3commas.io/api_access_tokens) with `Bots Read` and `Accounts Read` permissions
 - Add the API Key and API Secret to `.env`
-- Run `node export`
 
-You'll find the file in the `csv` folder.
+## Usage
 
-## Options
+Once Setup, it works out-of-the-box by running `node export` and you'll find the export in the `csv` folder.
 
-### scope
+There are 2 optional arguments: `--scope` and `--from`.
 
-Only include deals with the specified status:
+### Scope
 
-- `active`: Active deals
-- `finished`: Finished deals
-- `completed`: Successfully completed
-- `cancelled`: Cancelled deals
-- `failed`: Failed deals
+`--scope` accepts the following options:
+
+- `active`: Active deals that haven't yet closed
+- `finished`: All finished deals, regardless of whether they were successful or not
+- `completed`: Only successfully completed deals
+- `cancelled`: Only manually cancelled deals
+- `failed`: Only failed deals
 - any other value or null (default): all deals
 
-### from
+### From
 
-Only include deals created after the specified datetime. You must include year, month and day but time is optional. Some examples:
+`--from` accepts a date (and, optionally, a time) and filters deals to those created after that date.
+
+The default value is 24 hours ago, so with no arguments you'll get all deals of any status created in the last 24 hours.
+
+Some examples:
 
 - 2021-04-20
 - 2021-04-20T16
 - 2021-04-20T16:20
 - 2021-04-20T16:20:00
 
-## Data Accuracy
+## Troubleshooting
 
-Note that some data is not fixed and is only accurate at the time you run the script. For example, when exporting active deals, `final_profit` will be based on the current deal's value because the actual profit is not known until the deal is closed.
-
-It should, at least, provide accurate data if you were to close the deal at the same time as running the script.
-
-## Limitations
-
-Some limitations of the 3commas API:
-
-- Only the 1,000 most recently opened deals will be included
-- The only way to switch between Real and Paper accounts is by logging into https://3commas.io/
-- If the bot has multiple deal start conditions it's impossible to tell which one triggered the deal, so all are listed
+- **0 deals found**: The `--from` argument defaults to the last 24 hours so if no deals have been created in this period you'll get 0 results
+- **Data accuracy**: Data, especially *profit* data, is only accurate at the time this script runs, so an active deal's `final_profit` is really the deals current value, not profit you have actually made
+- **Switching accounts**: The only way to switch between Real and Paper accounts is by logging into https://3commas.io/ and selecting the desired account at the top before running this script
+- **Multiple deal start conditions**: If the bot has multiple deal start conditions it's impossible for this script to know which one triggered the deal, so all are listed
