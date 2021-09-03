@@ -29,10 +29,10 @@ module.exports = {
 		process.stdout.write('Fetching..')
 
 		// Pagination stuff
-		let deals   = []   // deals.push all the deals
-		let limit   = 1000 // Number of items per page
-		let offset  = 0    // Offset to get results from
-		let results = null // Length of previous response
+		let deals  = []    // deals.push all the deals
+		let limit  = 1000  // Number of items per page
+		let offset = 0     // Offset to get results from
+		let more   = false // Length of previous response
 
 		// Get next page if current page has max number of deals
 		do {
@@ -50,9 +50,9 @@ module.exports = {
 			}
 
 			// Exit condition
-			results = result.length
+			more = (result.length === limit)
 
-		} while (results)
+		} while (more)
 
 		// Confirm completion
 		process.stdout.write('done!')
