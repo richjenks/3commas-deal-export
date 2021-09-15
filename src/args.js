@@ -10,5 +10,6 @@ let from = date.toISOString()
 // Default options or CLI options, if provided
 module.exports = {
 	from:  argv.from  || from,
-	scope: argv.scope || null
+	scope: argv.scope || null,
+	bot:   argv.bot || null
 }

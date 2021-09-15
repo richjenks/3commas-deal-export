@@ -23,7 +23,7 @@ module.exports = {
 	},
 
 	// Get all deals
-	deals: async (from, scope) => {
+	deals: async (from, scope, bot) => {
 
 		// Liftoff!
 		process.stdout.write('Fetching..')
@@ -39,7 +39,7 @@ module.exports = {
 
 			// Get single page of deals
 			const result =
-			await module.exports.getDeals(from, scope, limit, offset)
+			await module.exports.getDeals(from, scope, bot, limit, offset)
 			.catch(e => console.log(e))
 
 			// If this page has results, prep for next page
@@ -62,12 +62,13 @@ module.exports = {
 	},
 
 	// Gets a single page of deals
-	getDeals: async (from, scope, limit, offset) => {
+	getDeals: async (from, scope, bot, limit, offset) => {
 		return new Promise(resolve => {
 			module.exports.tc().getDeals({
-				from: from,
-				scope: scope,
-				limit: limit,
+				from:   from,
+				scope:  scope,
+				bot_id: bot,
+				limit:  limit,
 				offset: offset
 			})
 			.then(deals => {

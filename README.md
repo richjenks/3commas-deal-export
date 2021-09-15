@@ -27,7 +27,7 @@ This was developed on the following but may well work on previous versions:
 
 Once Setup, it works out-of-the-box by running `node export` and you'll find the export in the `csv` folder.
 
-There are 2 optional arguments: `--scope` and `--from`.
+There are 3 optional arguments: `--scope`, `--from` and `--bot`.
 
 ### Scope
 
@@ -52,6 +52,14 @@ Some examples:
 - 2021-04-20T16
 - 2021-04-20T16:20
 - 2021-04-20T16:20:00
+
+### Bot
+
+`--bot` accepts the numerical ID of one of your bots and will only return deals it created.
+
+If omitted, results will include data from all bots.
+
+Run `node bots` to get the IDs for all your bots.
 
 ## Troubleshooting
 

@@ -7,7 +7,7 @@ const format = require('./src/format')
 const save   = require('./src/save')
 
 // Promises for API data
-const deals   = api.deals(args.from, args.scope)
+const deals   = api.deals(args.from, args.scope, args.bot)
 const account = api.account()
 const bots    = api.bots()
 
