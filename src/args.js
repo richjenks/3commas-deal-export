@@ -11,5 +11,5 @@ let from = date.toISOString()
 module.exports = {
 	from:  argv.from  || from,
 	scope: argv.scope || null,
-	bot:   argv.bot || null
+	bot:   argv.bot   || null
 }
