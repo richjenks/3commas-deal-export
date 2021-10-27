@@ -7,8 +7,9 @@ module.exports = {
 	tc: () => {
 		dotenv.config()
 		return new threeCommasAPI({
-			apiKey:    process.env.TC_API_KEY,
-			apiSecret: process.env.TC_API_SECRET,
+			apiKey:     process.env.TC_API_KEY,
+			apiSecret:  process.env.TC_API_SECRET,
+			forcedMode: process.env.TC_API_MODE
 		})
 	},
 

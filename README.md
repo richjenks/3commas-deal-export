@@ -65,5 +65,5 @@ Run `node bots` to get the IDs for all your bots.
 
 - **0 deals found**: The `--from` argument defaults to the last 24 hours so if no deals have been created in this period you'll get 0 results
 - **Data accuracy**: Data, especially *profit* data, is only accurate at the time this script runs, so an active deal's `final_profit` is really the deals current value, not profit you have actually made
-- **Switching accounts**: The only way to switch between Real and Paper accounts is by logging into https://3commas.io/ and selecting the desired account at the top before running this script
+- **Switching modes**: To switch between `real` and `paper` modes, change `TC_API_MODE` in your `.env` file
 - **Multiple deal start conditions**: If the bot has multiple deal start conditions it's impossible for this script to know which one triggered the deal, so all are listed

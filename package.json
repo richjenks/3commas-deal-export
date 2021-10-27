@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/richjenks/3commas-active-deals-export#readme",
   "dependencies": {
-    "3commas-api-node": "^1.0.9",
-    "dateformat": "^4.5.1",
+    "3commas-api-node": "^1.1.0",
+    "dateformat": "^4.6.3",
     "dotenv": "^8.6.0",
     "json2csv": "^5.0.6",
-    "yargs": "^17.1.1"
+    "yargs": "^17.2.1"
   }
 }
