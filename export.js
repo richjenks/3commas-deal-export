@@ -27,7 +27,7 @@ Promise
 
 	// Format and output to CSV
 	const data = format.deals(deals, bots, account)
-	const file = save.toFile(data)
+	const file = save.toFile(data, args.label)
 	console.log(deals.length + ' deals saved to ' + file)
 
 })
