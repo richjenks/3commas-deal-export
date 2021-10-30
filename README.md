@@ -76,7 +76,7 @@ Run `node bots` to get the IDs for all your bots.
 
 ### Label
 
-`--label` accepts an alphanumeric string and appends it to the output file name. It's simply a convenience for when you're doing multiple exports at once and want to remember which is which.
+`--label` accepts a string and appends it to the output file name. It's simply a convenience for when you're doing multiple exports at once and want to remember which is which.
 
 Example: `node export --label foo` might create `2021-04-20-12-30-00-foo.csv`.
 

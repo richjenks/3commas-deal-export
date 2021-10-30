@@ -1,5 +1,6 @@
 const { Parser } = require('json2csv')
 const dateFormat = require("dateformat")
+const args       = require("./args")
 const fs         = require('fs')
 
 module.exports = {
@@ -11,7 +12,7 @@ module.exports = {
 		const csv = parser.parse(data)
 
 		// Construct label suffix
-		label = label.replace(/[^0-9a-z\-\_\.]/gi, '')
+		label = args.label.replace(/[^0-9a-z\-\_\.]/gi, '')
 		if (label) label = '-' + label;
 
 		// Save to file
