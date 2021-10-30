@@ -29,10 +29,18 @@ Once Setup, it works out-of-the-box by running `node export` and you'll find the
 
 Options:
 
-* `--scope`: Filter deals by status
-* `--from`: Filter by creation data
-* `--bot`: Filter by bot
-* `--label`: Add label to output file
+-  `--mode`: Switch between real and paper modes
+-  `--scope`: Filter deals by status
+-  `--from`: Filter by creation data
+-  `--bot`: Filter by bot
+-  `--label`: Add label to output file
+
+### Mode
+
+`--mode` accepts the following options:
+
+- `real` (defaut): Real trading account
+- `paper`: Paper trading account
 
 ### Scope
 

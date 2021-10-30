@@ -1,3 +1,4 @@
+const args           = require("./args")
 const dotenv         = require("dotenv")
 const threeCommasAPI = require('3commas-api-node')
 
@@ -9,7 +10,7 @@ module.exports = {
 		return new threeCommasAPI({
 			apiKey:     process.env.TC_API_KEY,
 			apiSecret:  process.env.TC_API_SECRET,
-			forcedMode: process.env.TC_API_MODE
+			forcedMode: args.mode
 		})
 	},
 

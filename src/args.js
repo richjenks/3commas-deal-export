@@ -9,6 +9,7 @@ let from = date.toISOString()
 
 // Default options or CLI options, if provided
 module.exports = {
+	mode:  argv.mode  || 'real',
 	from:  argv.from  || from,
 	scope: argv.scope || null,
 	bot:   argv.bot   || null,
