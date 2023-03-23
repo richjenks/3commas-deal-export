@@ -21,6 +21,8 @@ module.exports = {
 					? 'total_bought_volume' // total
 					: 'base_order_volume'   // base
 			let created_at = dateFormat(deal.created_at, 'dd/mm/yyyy HH:MM:ss')
+			let closed_at = dateFormat(deal.closed_at, 'dd/mm/yyyy HH:MM:ss')
+			let close_date = dateFormat(deal.closed_at, 'dd/mm/yyyy')
 			let duration = Math.round((new Date - new Date(deal.created_at)) / 1000)
 
 			// Same format as Deal History CSV
@@ -39,7 +41,7 @@ module.exports = {
 				'safety_order_step_percentage': deal.safety_order_step_percentage,
 				'take_profit_type': take_profit_type,
 				'created_at': created_at,
-				'closed_at': deal.closed_at,
+				'closed_at': closed_at,
 				'duration': duration,
 				'profit_percentage_from_total_volume': deal.sold_volume / deal.bought_volume,
 				'profit_percentage_from_base_volume': deal.sold_volume / deal.base_order_volume,
@@ -57,7 +59,8 @@ module.exports = {
 				'bought_amount': deal.bought_amount,
 				'sold_amount': deal.sold_amount,
 				'final_profit': deal.actual_profit,
-				'close_date': deal.closed_at,
+				'close_date': close_date,
+				'note': deal.note,
 			})
 		})
 
