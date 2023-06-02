@@ -7,9 +7,9 @@ module.exports = {
 	toFile: (data, label) => {
 
 		// Convert to CSV
-		const json = JSON.stringify(data)
+		const json   = JSON.stringify(data)
 		const parser = new Parser;
-		const csv = parser.parse(data)
+		const csv    = parser.parse(data)
 
 		// Construct label suffix
 		label = args.label.replace(/[^0-9a-z\-\_\.]/gi, '')
